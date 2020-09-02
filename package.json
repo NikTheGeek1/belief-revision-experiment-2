@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm start server.js",
+    "start": "react-scripts start",
     "start-server": "node server.js",
     "heroku-postbuild": "cd online-app && npm install && set INLINE_RUNTIME_CHUNK=false && npm run build"
   },
