@@ -14,7 +14,9 @@ const app = express();
 
 
 app.use(compression());
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false,
+}));
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'online-app/build')));
