@@ -21,7 +21,8 @@ app.use(express.static(path.join(__dirname, 'online-app/build')));
 
 // Serve the static files from the React app
 const allowedOrigins = ['http://localhost:5000',
-'https://localhost:5000'
+'https://localhost:5000',
+'https://fun-science-game.herokuapp.com/'
 ];
 app.use(cors({
 origin: (origin, callback) => {
@@ -39,4 +40,6 @@ origin: (origin, callback) => {
 
 app.use(indexRouter);
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000, () => {
+    console.log('Server is up!!')
+});
