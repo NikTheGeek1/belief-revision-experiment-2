@@ -30,7 +30,7 @@ const Instructions = props => {
         dispatch(setTimer(true, 1, 5));
     }, [dispatch]);
 
-    const [instructionsPhase, setInstructionsPhase] = useState(INS_PHASES.comprehensionQuiz);
+    const [instructionsPhase, setInstructionsPhase] = useState(INS_PHASES.overview);
 
     const goToInstructionHandler = instructionPage => {
         console.log(instructionPage, 'Instructions', '25');
