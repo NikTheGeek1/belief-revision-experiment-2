@@ -1,0 +1,9 @@
+{"test_cases": [],
+"conditions": [
+	["#scenario_1", ["Paul", "Lisa"], [["Mary", "she", "her"], ["Jonathan", "he", "his"]], "#hint_con_1", [[30,80],[80,30]], [[20,50],[50,20]]], 
+    ["#scenario_2", ["Jim", "Mete"], [["Ann", "she", "her"], ["Andrew", "he", "his"]], "#hint_con_2", [[30,80],[80,30]], [[20,50],[50,20]]], 
+    ["#scenario_3", ["Eva", "Tom"],[["Alexander", "he", "his"], ["Alexander", "he", "his"]], "#hint_con_3", [[30,80],[80,30]], [[20,50],[50,20]]] 
+	],
+ "condition_order":["1","2","3"]
+}  
+ 

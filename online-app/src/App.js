@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createStore, combineReducers, applyMiddleware } from 'redux'; //applyMiddleware is if we also need to use redux thunk for asynchronus actions
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+
+import Layout from './containers/Layout';
+
+import timerReducer from './store/reducers/timer';
+import gamePhaseReducer from './store/reducers/gamePhase';
+
+const rootReducer = combineReducers({
+  timer: timerReducer,
+  gamePhase: gamePhaseReducer
+});
+
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Layout />
+    </Provider>
   );
 }
 
