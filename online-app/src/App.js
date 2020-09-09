@@ -7,10 +7,14 @@ import Layout from './containers/Layout';
 
 import timerReducer from './store/reducers/timer';
 import gamePhaseReducer from './store/reducers/gamePhase';
+import conditionDataReducer from './store/reducers/conditionData';
+import participantDataReducer from './store/reducers/participantData';
 
 const rootReducer = combineReducers({
   timer: timerReducer,
-  gamePhase: gamePhaseReducer
+  gamePhase: gamePhaseReducer,
+  conditionData: conditionDataReducer,
+  participantData: participantDataReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

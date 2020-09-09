@@ -6,6 +6,7 @@ import Timer from '../components/timer/Timer';
 import Ethics from '../containers/Ethics';
 import Notes from './Notes.js';
 import Instructions from './Instructions/Instructions';
+import Experiment from './Experiment/Experiment';
 
 
 import { PHASES } from '../store/actions/gamePhase';
@@ -23,6 +24,8 @@ const Layout = props => {
         currentGamePhase = <Notes />;
     } else if (gamePhase[PHASES.instructions]) {
         currentGamePhase = <Instructions />;
+    } else if (gamePhase[PHASES.experiment]) {
+        currentGamePhase = <Experiment />;
     }
 
     return (

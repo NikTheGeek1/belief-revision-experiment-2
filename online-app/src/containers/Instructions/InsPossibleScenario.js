@@ -14,8 +14,8 @@ const InsPossibleScenario = props => {
                 <p><i>Example</i></p>
                 <hr />
                 <p>Avery, the owner of a small company is facing bankruptcy due to an unforeseen supply shortage of an ingredient 
-                    required in the manufacturing process of their product. To prevent bankruptcy, the owner decides to 
-                    <b>lower wages (for the time being).</b> </p>
+                    required in the manufacturing process of their product. To prevent bankruptcy, the owner decides to <b>lower 
+                    wages (for the time being).</b> </p>
                 <hr />
                 <br />
                 <p>Would you say that Avery did right or wrong taking this decision, and how certain you are about your answer?</p>

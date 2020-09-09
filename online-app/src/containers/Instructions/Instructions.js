@@ -30,10 +30,9 @@ const Instructions = props => {
         dispatch(setTimer(true, 1, 5));
     }, [dispatch]);
 
-    const [instructionsPhase, setInstructionsPhase] = useState(INS_PHASES.overview);
+    const [instructionsPhase, setInstructionsPhase] = useState(INS_PHASES.comprehensionQuiz);
 
     const goToInstructionHandler = instructionPage => {
-        console.log(instructionPage, 'Instructions', '25');
         setInstructionsPhase(instructionPage);
     };
 
@@ -53,7 +52,7 @@ const Instructions = props => {
     } else if (instructionsPhase === INS_PHASES.summary) {
         currentInstruction = <InsSummary goToInstruction={goToInstructionHandler.bind(this, INS_PHASES.comprehensionQuiz)} />;
     } else if (instructionsPhase === INS_PHASES.comprehensionQuiz) {
-        currentInstruction = <InsQuiz goToInstruction={goToInstructionHandler.bind(this, INS_PHASES.comprehensionQuiz)} />;
+        currentInstruction = <InsQuiz goToInstruction={goToInstructionHandler.bind(this, INS_PHASES.overview)} />;
     }
 
     return (

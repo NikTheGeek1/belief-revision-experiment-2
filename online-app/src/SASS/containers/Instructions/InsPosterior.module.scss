@@ -2,7 +2,7 @@
 
 .InsPosterior {
     display: grid;
-    grid-template-columns: 1fr 40rem 1fr;
+    grid-template-columns: 1fr 45rem 1fr;
     grid-template-areas: ". text .";
     margin-bottom: .5rem;
 }
@@ -30,24 +30,72 @@
 
 }
 
-.AliceContainerOuter {
+
+.NeighboursContainer {
     display: grid;
-    grid-template-columns: repeat(2, min-content);
-    align-items: center;
-    text-decoration: underline;
-    & .CanvasContainer {
+    grid-template-columns: 1fr 1rem 1fr;
+    margin-left: -3rem;
+
+    .AliceContainerOuter {
+        display: grid;
+        grid-template-columns: repeat(2, min-content);
+        align-items: center;
+        text-decoration: underline;
+        
+            & .CanvasContainer {
+                display: grid;
+                justify-items: center;
+                margin-bottom: 2rem;
+                z-index: 1;
+                position: relative;
+            }
+            
+            & .AliceContainer {
+                display: grid;
+                justify-items: flex-start;
+                margin-bottom: 2rem;
+                margin-left: -4rem;
+
+            & h4 {
+                margin-left: -2.5rem;
+            }
+        }
+    }
+
+    .SeperationImage {
+        position: relative;
+        z-index: 10;
+        margin-left: -2.5rem;
+    }
+    .BobContainerOuter {
+        display: grid;
+        grid-template-columns: repeat(2, min-content);
+        align-items: center;
+        text-decoration: underline;
+        margin-left: -5rem;
+
+        
+        & .CanvasContainer {
         display: grid;
         justify-items: center;
         margin-bottom: 2rem;
+        margin-left: -7rem;
+        z-index: 1;
+        position: relative;
     }
 
-    & .AliceContainer {
+    & .BobContainer {
         display: grid;
         justify-items: center;
         margin-bottom: 2rem;
     }
 
 }
+}
+    
+    
+    
+
 
 .MainPlot {
     margin-top: -5rem;

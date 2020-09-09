@@ -13,51 +13,51 @@ var est_beta_par = function (mu, variance) {
 };
 
 // creating new distribution based on moving sliders
-var plot_distributions = function(bel_slider, con_slider, bel_slider_pos, con_slider_pos, name_1, name_2, plot_division, continue_btn) {
-  $('#scenario_1_4_btn').prop('disabled',true);
- document.getElementById(bel_slider).value = bel_slider_pos;
- document.getElementById(con_slider).value = con_slider_pos;
+var plot_distributions = function (bel_slider, con_slider, bel_slider_pos, con_slider_pos, name_1, name_2, plot_division, continue_btn) {
+  $('#scenario_1_4_btn').prop('disabled', true);
+  document.getElementById(bel_slider).value = bel_slider_pos;
+  document.getElementById(con_slider).value = con_slider_pos;
 
- var hash = '#';
+  var hash = '#';
   var bel_slider = hash.concat(bel_slider);
   var con_slider = hash.concat(con_slider);
 
 
   var belief = bel_slider_pos;
- var variance = log_slider(transform_con_slider_pos(parseInt(con_slider_pos)));
- var x = create_data(belief/100, variance)[0];
- var y = create_data(belief/100, variance)[1];
- create_plot(x, y, belief/100, name_1, name_2, plot_division, 550);
+  var variance = log_slider(transform_con_slider_pos(parseInt(con_slider_pos)));
+  var x = create_data(belief / 100, variance)[0];
+  var y = create_data(belief / 100, variance)[1];
+  create_plot(x, y, belief / 100, name_1, name_2, plot_division, 550);
 
- //  belief
- var $belief=$(bel_slider);
- $belief.on('input',function(){
-   if ($('#confidence_slider_4').val() != $('#confidence_slider_3').val() && $('#belief_slider_4').val() != $('#belief_slider_3').val()) {
-     $('#scenario_1_4_btn').prop('disabled',false);
-   };
-     var belief = parseInt($belief.val());
-     var variance = log_slider(transform_con_slider_pos(parseInt($confidence.val())));
-     var x = create_data(belief/100, variance)[0];
-   var y = create_data(belief/100, variance)[1];
-   create_plot(x, y, belief/100, name_1, name_2, plot_division, 550);
- });
+  //  belief
+  var $belief = $(bel_slider);
+  $belief.on('input', function () {
+    if ($('#confidence_slider_4').val() != $('#confidence_slider_3').val() && $('#belief_slider_4').val() != $('#belief_slider_3').val()) {
+      $('#scenario_1_4_btn').prop('disabled', false);
+    };
+    var belief = parseInt($belief.val());
+    var variance = log_slider(transform_con_slider_pos(parseInt($confidence.val())));
+    var x = create_data(belief / 100, variance)[0];
+    var y = create_data(belief / 100, variance)[1];
+    create_plot(x, y, belief / 100, name_1, name_2, plot_division, 550);
+  });
 
- // confidence
- var $confidence=$(con_slider);
- $confidence.on('input',function(){
-   if ($('#confidence_slider_4').val() != $('#confidence_slider_3').val() && $('#belief_slider_4').val() != $('#belief_slider_3').val()) {
-     $('#scenario_1_4_btn').prop('disabled',false);
-   };
-   var belief = parseInt($belief.val());
-   var variance = log_slider(transform_con_slider_pos(parseInt($confidence.val())));
-   var x = create_data(belief/100, variance)[0];
-   var y = create_data(belief/100, variance)[1];
-   create_plot(x, y, belief/100, name_1, name_2, plot_division, 550);
- });
+  // confidence
+  var $confidence = $(con_slider);
+  $confidence.on('input', function () {
+    if ($('#confidence_slider_4').val() != $('#confidence_slider_3').val() && $('#belief_slider_4').val() != $('#belief_slider_3').val()) {
+      $('#scenario_1_4_btn').prop('disabled', false);
+    };
+    var belief = parseInt($belief.val());
+    var variance = log_slider(transform_con_slider_pos(parseInt($confidence.val())));
+    var x = create_data(belief / 100, variance)[0];
+    var y = create_data(belief / 100, variance)[1];
+    create_plot(x, y, belief / 100, name_1, name_2, plot_division, 550);
+  });
 };
 
 //  creating two data arrays where y corresponds to the output of the beta density (similar to the idea dnorm in r)
-var create_arrays = function(start_val, stop_val, cardinality, alpha, beta) {
+var create_arrays = function (start_val, stop_val, cardinality, alpha, beta) {
   var x_arr = [];
   var y_arr = [];
   a = Math.min(alpha, 500);
@@ -73,7 +73,7 @@ var create_arrays = function(start_val, stop_val, cardinality, alpha, beta) {
 };
 
 //  creating specific data and parameters
-var create_data = function(mu, variance){
+var create_data = function (mu, variance) {
   var x = create_arrays(0.01, .99, 1000, 10, 10)[0]
   var alpha = est_beta_par(mu, variance)[0];
   var beta = est_beta_par(mu, variance)[1];
@@ -83,22 +83,23 @@ var create_data = function(mu, variance){
 
 // get index of minimum of list
 function indexOfMin(arr) {
-    if (arr.length === 0) {
-        return -1;
+  if (arr.length === 0) {
+    return -1;
+  };
+  var min = arr[0];
+  var minIndex = 0;
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      minIndex = i;
+      min = arr[i];
     };
-    var min = arr[0];
-    var minIndex = 0;
-    for (var i = 1; i < arr.length; i++) {
-        if (arr[i] < min) {
-            minIndex = i;
-            min = arr[i];
-        };
-    };
-    return minIndex;
+  };
+  return minIndex;
 };
 
 // creating the beta pdf plot used in the main task
-var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, title_name, confidence, plot_type) {
+var create_plot = function (x, y, belief_mu, plot_div, name_1, name_2, size, title_name, confidence, plot_type) {
+
   var arr_diff = [];
   var bel = 'Belief: ';
   var con = 'Certainty: ';
@@ -113,9 +114,9 @@ var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, titl
     text_name = "<b>" + title_name + "'s</b> rating:<br>" + belief_str + "<br>" + con_str;
   };
   if (title_name == "Your") {
-    belief_str = 'Belief: ' + $('#beliefOutputId_3').text();
-    con_str = "Certainty: "+ $('#confidenceOutputId_3').text();
-    text_name = "<b>Initial recommendation</b>:<br>" + belief_str + "<br>" + con_str;
+    belief_str = 'Belief: ' + belief_mu * 100;
+    con_str = "Certainty: " + confidence;
+    text_name = "<b>Your initial belief</b>:<br>" + belief_str + "<br>" + con_str;
   };
 
   for (var i = 0; i < x.length; i++) {
@@ -123,15 +124,15 @@ var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, titl
     arr_diff.push(Math.abs(belief_mu - x_val));
   };
 
-  var closest_x = x.reduce(function(prev, curr) {
+  var closest_x = x.reduce(function (prev, curr) {
     return (Math.abs(curr - belief_mu) < Math.abs(prev - belief_mu) ? curr : prev);
   });
 
-  var closest_x_small = x.reduce(function(prev, curr) {
+  var closest_x_small = x.reduce(function (prev, curr) {
     return (Math.abs(curr - 0.05) < Math.abs(prev - 0.05) ? curr : prev);
   });
 
- var closest_x_large = x.reduce(function(prev, curr) {
+  var closest_x_large = x.reduce(function (prev, curr) {
     return (Math.abs(curr - 0.95) < Math.abs(prev - 0.95) ? curr : prev);
   });
 
@@ -157,7 +158,7 @@ var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, titl
     type: 'scatter',
     fill: 'tozeroy',
     mode: 'lines',
-    line:{color:'red'}
+    line: { color: 'red' }
   };
 
   var trace_2 = {
@@ -166,10 +167,10 @@ var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, titl
     type: 'scatter',
     fill: 'tozeroy',
     mode: 'lines',
-    line:{color:'green'}
+    line: { color: 'green' }
   };
 
-  var data = [ trace_1, trace_2 ];
+  var data = [trace_1, trace_2];
 
   var layout = {
     tracetoggle: false,
@@ -181,30 +182,34 @@ var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, titl
       showaxis: false,
       showticks: false,
       zeroline: false,
-      showticklabels: false},
-      xaxis: {
-        font:{size:15},
-        fixedrange: true,
-        showgrid: false,
-        zeroline: false,
-        tickvals: [.01, .5, .99],
-        ticktext: ["   " + "<b>" + name_1 + "</b>", 'neutral', "<b>" + name_2 + "</b>  "],
-        range: [0,1]},
+      showticklabels: false
+    },
+    xaxis: {
+      font: { size: 15 },
+      fixedrange: true,
+      showgrid: false,
+      zeroline: false,
+      tickvals: [.01, .5, .99],
+      ticktext: ["   " + "<b>" + name_1 + "</b>", 'neutral', "<b>" + name_2 + "</b>  "],
+      range: [0, 1]
+    },
 
-    shapes: [{type: 'line', x0: belief_mu, x1: belief_mu, y0:0, y1:y[min_diff_index],
-                               line: {color:'black', width : 3}
-                               }],
+    shapes: [{
+      type: 'line', x0: belief_mu, x1: belief_mu, y0: 0, y1: y[min_diff_index],
+      line: { color: 'black', width: 3 }
+    }],
 
     // shapes: [{type: 'line', x0: mode, x1: mode, y0:0, y1:y[min_diff_index],
     //                            line: {color:'black', width : 3}
     //                            }],
 
-    autosize:false,
+    autosize: false,
     width: size,
-    height: size/scale_height,
+    height: size / scale_height,
     title: {
-      text: text_name, x:0.2,
-      font: {size: 15}},
+      text: text_name, x: 0.2,
+      font: { size: 15 }
+    },
     showlegend: false
     // annotations: [
     // {
@@ -220,12 +225,12 @@ var create_plot = function(x, y, belief_mu, plot_div, name_1, name_2, size, titl
     //   ay: -45,
     // }]
   };
-  Plotly.newPlot(plot_div, data, layout, {displayModeBar: false}, {staticPlot: true});
+  Plotly.newPlot(plot_div, data, layout, { displayModeBar: false }, { staticPlot: true });
 };
 
 
 // creating the beta pdf plot used in the beginning
-var create_plot_start = function(x, y, belief_mu, plot_div, name_1, name_2, title_name) {
+var create_plot_start = function (x, y, belief_mu, plot_div, name_1, name_2, title_name) {
   `
   x=x_1
   y=y_1
@@ -248,17 +253,17 @@ var create_plot_start = function(x, y, belief_mu, plot_div, name_1, name_2, titl
   //   y: y,
   // };
 
- //  var closest_x = x.reduce(function(prev, curr) {
- //    return (Math.abs(curr - belief_mu) < Math.abs(prev - belief_mu) ? curr : prev);
- //  });
+  //  var closest_x = x.reduce(function(prev, curr) {
+  //    return (Math.abs(curr - belief_mu) < Math.abs(prev - belief_mu) ? curr : prev);
+  //  });
 
- //  var closest_x_small = x.reduce(function(prev, curr) {
- //    return (Math.abs(curr - 0.05) < Math.abs(prev - 0.05) ? curr : prev);
- //  });
+  //  var closest_x_small = x.reduce(function(prev, curr) {
+  //    return (Math.abs(curr - 0.05) < Math.abs(prev - 0.05) ? curr : prev);
+  //  });
 
- // var closest_x_large = x.reduce(function(prev, curr) {
- //    return (Math.abs(curr - 0.95) < Math.abs(prev - 0.95) ? curr : prev);
- //  });
+  // var closest_x_large = x.reduce(function(prev, curr) {
+  //    return (Math.abs(curr - 0.95) < Math.abs(prev - 0.95) ? curr : prev);
+  //  });
 
   var trace_1 = {
     x: x,
@@ -268,7 +273,7 @@ var create_plot_start = function(x, y, belief_mu, plot_div, name_1, name_2, titl
     mode: 'lines'
   };
 
-  var data = [ trace_1 ];
+  var data = [trace_1];
   var layout = {
     hovermode: false,
     yaxis: {
@@ -277,23 +282,27 @@ var create_plot_start = function(x, y, belief_mu, plot_div, name_1, name_2, titl
       showaxis: false,
       showticks: false,
       zeroline: false,
-      showticklabels: false},
-      xaxis: {
-        font:{size:15},
-        fixedrange: true,
-        showgrid: false,
-        zeroline: false,
-        tickvals: [.01, .5, .99],
-        ticktext: ["   " + "<b>" + name_1 + "</b>", 'neutral', "<b>" + name_2 + "</b>  "],
-        range: [0,1]},
-    autosize:false,
+      showticklabels: false
+    },
+    xaxis: {
+      font: { size: 15 },
+      fixedrange: true,
+      showgrid: false,
+      zeroline: false,
+      tickvals: [.01, .5, .99],
+      ticktext: ["   " + "<b>" + name_1 + "</b>", 'neutral', "<b>" + name_2 + "</b>  "],
+      range: [0, 1]
+    },
+    autosize: false,
     width: 550,
-    height: 550/1.6,
+    height: 550 / 1.6,
     title: title_name,
     showlegend: false,
 
-    shapes: [{type: 'line', x0: belief_mu, x1: belief_mu,
-              line: {color:'black', width : 3}}],
+    shapes: [{
+      type: 'line', x0: belief_mu, x1: belief_mu,
+      line: { color: 'black', width: 3 }
+    }],
   };
-  Plotly.newPlot(plot_div, data, layout, {displayModeBar: false}, {staticPlot: true});
+  Plotly.newPlot(plot_div, data, layout, { displayModeBar: false }, { staticPlot: true });
 };

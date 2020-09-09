@@ -1,6 +1,6 @@
 @import '../../constants.scss';
 
-.InsNeighbourV1 {
+.ExpNeighbourBeliefs {
     display: grid;
     grid-template-columns: 1fr 40rem 1fr;
     grid-template-areas: ". text .";
@@ -15,6 +15,10 @@
     border-radius: .5rem;
     box-shadow: $shadow-THE-smallest;
     border-radius: .3rem;
+
+    & h1 {
+        text-align: center;
+    }
     & p {
         position: relative;
         z-index: 10;
@@ -24,9 +28,6 @@
         position: relative;
         z-index: 10;
     }
-     & ol {
-         margin-left: 1rem;
-     }
 }
 
 

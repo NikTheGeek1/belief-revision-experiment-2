@@ -14,6 +14,7 @@ const y_1 = w.create_data(0.5, 0.005)[1];
 
 const InsMeanSlider = props => {
     const [showModal, setShowModal] = useState(false);
+    const [meanBelief, setMeanBelief] = useState(50);
     // If we want to load a script
     // useEffect(() => {
     //     script(() => {
@@ -26,10 +27,11 @@ const InsMeanSlider = props => {
         w.create_plot_start(w.x, w.y, 0.5, 'PlotContainer', 'Unethical', 'Ethical');
 
     }, []);
-    const sliderHandler = () => {
-        const belief = parseInt(document.getElementById('beliefSlider').value);
-        w.create_plot_start(w.x, w.y, belief / 100, 'PlotContainer', 'Unethical', 'Ethical', "");
-        document.getElementById('beliefOutput').value = Math.round(w.transform_bel_slider_val(belief));
+    const sliderHandler = (e) => {
+        // const belief = parseInt(document.getElementById('beliefSlider').value);
+        setMeanBelief(e.target.value);
+        w.create_plot_start(w.x, w.y, e.target.value / 100, 'PlotContainer', 'Unethical', 'Ethical', "");
+        document.getElementById('beliefOutput').value = Math.round(w.transform_bel_slider_val(e.target.value));
     }
 
     const nextButtonHandler = () => {
@@ -65,7 +67,7 @@ const InsMeanSlider = props => {
 
                 <div align="center" className={Classes.PlotContainer} id="PlotContainer">
                     <p align="center"><b>Belief slider:</b></p>
-                    <input className={Classes.Slider} type="range" min="5" max="95" defaultValue id="beliefSlider" step={0.90909090909} width="20%" onChange={sliderHandler} />
+                    <input className={Classes.Slider} type="range" min="5" max="95" value={meanBelief} id="beliefSlider" step={0.90909090909} width="20%" onChange={sliderHandler} />
                     <output className={Classes.Output} id="beliefOutput">move slider to rate belief</output>
                 </div>
                 <br />

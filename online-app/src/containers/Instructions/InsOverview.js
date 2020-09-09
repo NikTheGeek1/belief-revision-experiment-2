@@ -13,8 +13,8 @@ const InsOverview = props => {
                 <hr />
                 <p>First, you are going to read a fictional scenario involving a few characters. 
                     Your job is to judge the main character based on their act and to provide a 
-                    certainty rating on your judgment. Please read all instructions carefully. 
-                    <i>You will be asked to complete a comprehension quiz at the end of the instructions.</i> 
+                    certainty rating on your judgment. Please read all instructions carefully. <i>You 
+                    will be asked to complete a comprehension quiz at the end of the instructions.</i> 
                     Thank you for your participation!</p>
                 <hr />
                 <img src={thankYouImage} alt="thank you"/>

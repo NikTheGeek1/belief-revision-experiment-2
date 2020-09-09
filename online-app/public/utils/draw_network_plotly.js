@@ -10,14 +10,14 @@ function draw_network_plotly(plot_div, name1, name2, condition, title=''){
     title3='<i>Recall: '+name1+' formed their opinion reading one scenario<br> and '+name2+' formed theirs from a <b>different</b> scenario. <br>However, '+name1+' told '+name2+' everything they learned from the scenario they read.<br> This means that <b>'+name2+' knew everything</b> about '+name1+'s <br>belief and their certainty <b>before you</b> interviewed both.'
 
   }
-  if (condition == 1){
+  if (condition == 'independent'){
     // condition 1 (indipendent source, no communication)
     var trace1 = {
-         'x': [0.2, 0.8, 0.5, 0.5, 0.3, 0.7, 1],
-         'y': [0.4, 0.4, 0.0, 0.6, 0.8, 0.8, 1],
+         'x': [0.2, 0.8, 0.5, 0.3, 0.7, 1],
+         'y': [0.4, 0.4, 0.0, 0.8, 0.8, 1],
          'type': 'scatter',
          'mode': 'text',
-         'text': ['<b>'+name1+'</b>', '<b>'+name2+'</b>', '<b>You</b>', '<b>scenario1</b>', '<b>scenario2</b>','<b>scenario3</b>', ''],
+         'text': ['<b>'+name1+'</b>', '<b>'+name2+'</b>', '<b>You</b>',  '<b>source1</b>','<b>source2</b>', ''],
          'textfont': {'family': 'sans serif', 'size': 18},
          'hoverinfo': 'none'
        }
@@ -41,16 +41,6 @@ function draw_network_plotly(plot_div, name1, name2, condition, title=''){
      'range': [-0.15, 1.15]},
 
     'annotations': [
-      // middle arrow
-     {'showarrow': true,
-      'x': 0.5,
-      'y': 0.05,
-      'ax': 0,
-      'ay': -150,
-      'arrowsize': 2,
-      'arrowhead': 1,
-      'xanchor': 'left',
-      'yanchor': 'bottom'},
       // left up arrow
      {'showarrow': true,
       'x': 0.25,
@@ -93,14 +83,14 @@ function draw_network_plotly(plot_div, name1, name2, condition, title=''){
       'yanchor': 'bottom'}]}
 
 
-  }else if(condition == 2){
+  }else if(condition == 'shared'){
     // condition 2 (dependent source, no communication)
     var trace1 = {
-         'x': [0.2, 0.8, 0.5, .5, 0.5, 1],
-         'y': [0.4, 0.4, 0.0, .6, 0.8, 1],
+         'x': [0.2, 0.8, 0.5, 0.5, 1],
+         'y': [0.4, 0.4, 0.0, 0.8, 1],
          'type': 'scatter',
          'mode': 'text',
-         'text': ['<b>'+name1+'</b>', '<b>'+name2+'</b>', '<b>You</b>', '<b>scenario1</b>', '<b>scenario2</b>', ''],
+         'text': ['<b>'+name1+'</b>', '<b>'+name2+'</b>', '<b>You</b>', '<b>source1</b>', ''],
          'textfont': {'family': 'sans serif', 'size': 18},
          'hoverinfo': 'none'
        }
@@ -124,16 +114,6 @@ function draw_network_plotly(plot_div, name1, name2, condition, title=''){
      'range': [-0.15, 1.15]},
 
     'annotations': [
-      // middle arrow
-     {'showarrow': true,
-      'x': 0.5,
-      'y': 0.05,
-      'ax': 0,
-      'ay': -150,
-      'arrowsize': 2,
-      'arrowhead': 1,
-      'xanchor': 'left',
-      'yanchor': 'bottom'},
       // left up arrow
      {'showarrow': true,
       'x': 0.25,
@@ -174,14 +154,14 @@ function draw_network_plotly(plot_div, name1, name2, condition, title=''){
       'arrowhead': 1,
       'xanchor': 'left',
       'yanchor': 'bottom'}]}
-  }else{
+  }else if (condition === 'sequential'){
     // condition 3 (indipendent sources, with communication)
     var trace1 = {
-         'x': [0.3, 0.7, 0.5, .5, 0.3, 0.7, 1],
-         'y': [0.5, 0.3, 0.0, .2, 0.8, 0.8, 1],
+         'x': [0.3, 0.7, 0.5, 0.3, 0.7, 1],
+         'y': [0.5, 0.3, 0.0, 0.8, 0.8, 1],
          'type': 'scatter',
          'mode': 'text',
-         'text': ['<b>'+name1+'</b>', '<b>'+name2+'</b>', '<b>You</b>', '<b>scenario1</b>','<b>scenario2</b>','<b>scenario3</b>', ''],
+         'text': ['<b>'+name1+'</b>', '<b>'+name2+'</b>', '<b>You</b>','<b>source1</b>','<b>source2</b>', ''],
          'textfont': {'family': 'sans serif', 'size': 18},
          'hoverinfo': 'none'
        }
@@ -205,16 +185,6 @@ function draw_network_plotly(plot_div, name1, name2, condition, title=''){
      'range': [-0.15, 1.15]},
 
     'annotations': [
-      // middle arrow
-     {'showarrow': true,
-      'x': 0.5,
-      'y': 0.05,
-      'ax': 0,
-      'ay': -35,
-      'arrowsize': 2,
-      'arrowhead': 1,
-      'xanchor': 'left',
-      'yanchor': 'bottom'},
       // left up arrow
      {'showarrow': true,
       'x': 0.3,
