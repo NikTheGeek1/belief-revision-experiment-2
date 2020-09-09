@@ -114,7 +114,7 @@ var create_plot = function (x, y, belief_mu, plot_div, name_1, name_2, size, tit
     text_name = "<b>" + title_name + "'s</b> rating:<br>" + belief_str + "<br>" + con_str;
   };
   if (title_name == "Your") {
-    belief_str = 'Belief: ' + belief_mu * 100;
+    belief_str = 'Belief: ' + Math.round(belief_mu * 100);
     con_str = "Certainty: " + confidence;
     text_name = "<b>Your initial belief</b>:<br>" + belief_str + "<br>" + con_str;
   };

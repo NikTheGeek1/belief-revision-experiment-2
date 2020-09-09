@@ -27,7 +27,7 @@ const ExpPosterior = props => {
         const yourData = makeData(priorData.a, priorData.b);
 
         w.create_plot(neigh1Data.x, neigh1Data.y, neigh1Data.mean.toFixed(2), 'ins_neighbour1_plot', 'Unethical', 'Ethical', 350, neighbour1Name.name, (Math.round(neigh1Data.var)).toString(), '1');
-        w.create_plot(yourData.x, yourData.y, Math.round(yourData.mean).toFixed(2), 'ins_your_plot', 'Unethical', 'Ethical', 350, "Your", (Math.round(yourData.var)).toString(), '1');
+        w.create_plot(yourData.x, yourData.y, yourData.mean.toFixed(2), 'ins_your_plot', 'Unethical', 'Ethical', 350, "Your", (Math.round(yourData.var)).toString(), '1');
         w.create_plot(neigh2Data.x, neigh2Data.y, neigh2Data.mean.toFixed(2), 'ins_neighbour2_plot', 'Unethical', 'Ethical', 350, neighbour2Name.name, (Math.round(neigh2Data.var)).toString(), '1');
 
         w.plot_distributions('beliefSlider', 'varSlider', beliefValue, w.transform_con_slider_pos(varValue), 'ins_full_plot', 'Unethical', 'Ethical', "");
