@@ -7,11 +7,13 @@ import Ethics from '../containers/Ethics';
 import Notes from './Notes.js';
 import Instructions from './Instructions/Instructions';
 import Experiment from './Experiment/Experiment';
+import End from './End';
 
 
 import { PHASES } from '../store/actions/gamePhase';
 
 import Classes from '../SASS/containers/Layout.module.scss';
+import Debrief from './Debrief';
 
 const Layout = props => {
     const timer = useSelector(state => state.timer);
@@ -26,6 +28,10 @@ const Layout = props => {
         currentGamePhase = <Instructions />;
     } else if (gamePhase[PHASES.experiment]) {
         currentGamePhase = <Experiment />;
+    } else if (gamePhase[PHASES.debrief]) {
+        currentGamePhase = <Debrief />;
+    } else if (gamePhase[PHASES.end]) {
+        currentGamePhase = <End />;
     }
 
     return (

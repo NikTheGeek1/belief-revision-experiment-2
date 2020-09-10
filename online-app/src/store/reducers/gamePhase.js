@@ -5,7 +5,9 @@ const initialState = {
     [PHASES.notes]: false,
     [PHASES.instructions]: false,
     [PHASES.experiment]: false,
-    [PHASES.debrief]: false
+    [PHASES.debrief]: false,
+    [PHASES.end]: false
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,8 +18,10 @@ const reducer = (state = initialState, action) => {
                 [PHASES.notes]: false,
                 [PHASES.instructions]: false,
                 [PHASES.experiment]: false,
-                [PHASES.debrief]: false
+                [PHASES.debrief]: false,
+                [PHASES.end]: false
             };
+
             return { ...newState, [action.phase]: true }
         default:
             return state;

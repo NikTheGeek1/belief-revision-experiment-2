@@ -5,7 +5,8 @@ export const PHASES = {
     notes: 'notes',
     instructions: 'instructions',
     experiment: 'experiment',
-    debrief: 'debrief'
+    debrief: 'debrief',
+    end: 'end'
 };
 
 export const changePhase = nextPhase => {

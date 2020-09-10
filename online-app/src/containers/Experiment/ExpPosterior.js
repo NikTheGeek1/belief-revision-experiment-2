@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+import { storePosterior } from '../../store/actions/participantData';
+
 import Classes from '../../SASS/containers/Experiment/ExpPosterior.module.scss';
 import Button from '../../components/Button/Button';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import makeData from '../../utils/AlphaBetaToArrayData';
 import sepImg from '../../static/images/seperation.png';
 import Condition from '../../components/Experiment/Condition';
@@ -10,6 +12,7 @@ import Condition from '../../components/Experiment/Condition';
 const w = window;
 
 const ExpPosterior = props => {
+    const dispatch = useDispatch();
     const conditionNum = useSelector(state => state.conditionData.conditionNumber);
     const condition = useSelector(state => state.conditionData.conditions[conditionNum]);
     const neighbour1Beliefs = useSelector(state => state.conditionData.neighbourBeliefsOrder[conditionNum][0]);
@@ -18,7 +21,7 @@ const ExpPosterior = props => {
     const neighbour2Name = useSelector(state => state.conditionData.conditionData[conditionNum].neighbour2Name);
     const actorName = useSelector(state => state.conditionData.conditionData[conditionNum].name);
     const actorMotive = useSelector(state => state.conditionData.conditionData[conditionNum].motive);
-    const priorData = useSelector(state => state.participantData.prior);
+    const priorData = useSelector(state => state.participantData[conditionNum].prior);
 
     useEffect(() => {
         // NEIGHBOUR 1
@@ -29,7 +32,7 @@ const ExpPosterior = props => {
         w.create_plot(neigh1Data.x, neigh1Data.y, neigh1Data.mean.toFixed(2), 'ins_neighbour1_plot', 'Unethical', 'Ethical', 350, neighbour1Name.name, (Math.round(neigh1Data.var)).toString(), '1');
         w.create_plot(yourData.x, yourData.y, yourData.mean.toFixed(2), 'ins_your_plot', 'Unethical', 'Ethical', 350, "Your", (Math.round(yourData.var)).toString(), '1');
         w.create_plot(neigh2Data.x, neigh2Data.y, neigh2Data.mean.toFixed(2), 'ins_neighbour2_plot', 'Unethical', 'Ethical', 350, neighbour2Name.name, (Math.round(neigh2Data.var)).toString(), '1');
-        
+
         w.plot_distributions('beliefSlider', 'varSlider', beliefValue, varValue, 'ins_full_plot', 'Unethical', 'Ethical', "");
 
     }, []);
@@ -44,6 +47,11 @@ const ExpPosterior = props => {
 
     const varSliderHandler = e => {
         setVarValue(Math.round(e.target.value));
+    };
+
+    const submitDataHandler = () => {
+        dispatch(storePosterior({mean: beliefValue, var: varValue, conditionNumber: conditionNum}));
+        props.goToExperimentPhase();
     };
 
     return (
@@ -96,7 +104,7 @@ const ExpPosterior = props => {
                     <input className={Classes.Slider} type="range" min="1" max="99" value={varValue} id="varSlider" step={1} width="20%" onChange={varSliderHandler} />
                     <output className={Classes.Output} id="varOutput">{varValue}</output>
                 </div>
-                <Button clicked={props.goToExperimentPhase}>Next</Button>
+                <Button clicked={submitDataHandler}>Next</Button>
             </div>
         </div>
     );

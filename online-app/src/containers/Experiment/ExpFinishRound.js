@@ -4,13 +4,14 @@ import Button from '../../components/Button/Button';
 import Classes from '../../SASS/containers/Experiment/ExpFinishRound.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { incrementCondition } from '../../store/actions/conditionData';
+import { changePhase, PHASES } from '../../store/actions/gamePhase';
 
 const ExpFinishRound = props => {
     const conditionNumber = useSelector(state => state.conditionData.conditionNumber);
     const dispatch = useDispatch();
     const finishHandler = () => {
         if (conditionNumber === 2) {
-            return // go to debrief
+            return dispatch(changePhase(PHASES.debrief));
         }
         dispatch(incrementCondition());
         props.goToExperimentPhase();

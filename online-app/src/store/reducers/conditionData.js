@@ -26,9 +26,9 @@ const neighbour1Names = shuffle([0, 1, 2, 3]);
 const neighbour2Names = shuffle([0, 1, 2, 3]);
 const scenariosOrder = shuffle([0, 1, 2]); 
 const conditionData = [
-    scenarioInstance.generateScenario(scenariosOrder[0], names[0], neighbour1Names[0], neighbour2Names[0], 'A', motives[0], neighbourBeliefsOrder[0]),
-    scenarioInstance.generateScenario(scenariosOrder[1], names[1], neighbour1Names[1], neighbour2Names[1], 'A', motives[1], neighbourBeliefsOrder[1]),
-    scenarioInstance.generateScenario(scenariosOrder[2], names[2], neighbour1Names[2], neighbour2Names[2], 'A', motives[2], neighbourBeliefsOrder[2]),
+    scenarioInstance.generateScenario(scenariosOrder[0], names[0], neighbour1Names[0], neighbour2Names[0], 'A', motives[0], neighbourBeliefsOrder[0], conditions[0]),
+    scenarioInstance.generateScenario(scenariosOrder[1], names[1], neighbour1Names[1], neighbour2Names[1], 'A', motives[1], neighbourBeliefsOrder[1], conditions[1]),
+    scenarioInstance.generateScenario(scenariosOrder[2], names[2], neighbour1Names[2], neighbour2Names[2], 'A', motives[2], neighbourBeliefsOrder[2], conditions[2]),
 ];
 
 const initialState = {

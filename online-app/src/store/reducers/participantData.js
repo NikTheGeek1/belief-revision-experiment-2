@@ -1,23 +1,6 @@
-import { STORE_PRIOR } from '../actions/participantData';
+import { STORE_PRIOR, STORE_POSTERIOR } from '../actions/participantData';
 
-const initialState = {
-    prior: {
-        meanRaw: null,
-        mean: null,
-        varRaw: null,
-        var: null,
-        a: null,
-        b: null,
-    }, 
-    posterior: {
-        meanRaw: null,
-        mean: null,
-        varRaw: null,
-        var: null,
-        a: null,
-        b: null,
-    }
-}
+const initialState = [{}, {}, {}];
 
 
 export default (state = initialState, action) => {
@@ -31,7 +14,23 @@ export default (state = initialState, action) => {
                 a: action.priorData.a,
                 b: action.priorData.b
             };
-            return { ...state, prior: prior};
+            const oldStatePrior = [...state];
+            oldStatePrior[action.conditionNumber].prior = prior;
+            return oldStatePrior;
+
+            case STORE_POSTERIOR:
+                const posterior = {
+                    meanRaw: action.posteriorData.meanRaw,
+                    mean: action.posteriorData.mean,
+                    varRaw: action.posteriorData.varRaw,
+                    var: action.posteriorData.var,
+                    a: action.posteriorData.a,
+                    b: action.posteriorData.b
+                };
+                const oldStatePosterior = [...state];
+                oldStatePosterior[action.conditionNumber].posterior = posterior;
+                return oldStatePosterior;
+
         default:
             return state;
     }

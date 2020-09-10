@@ -77,7 +77,7 @@ export default class Scenario {
 
     }
 
-    generateScenario = (scenarioId, nameId, neighbour1NameId, neighbour2NameId, action, actorsMotive, neighbourBeliefs) => {
+    generateScenario = (scenarioId, nameId, neighbour1NameId, neighbour2NameId, action, actorsMotive, neighbourBeliefs, cond) => {
         const name = this.nameData[nameId];
         const act = action === 'A' ? this.AActions[scenarioId] : this.BActions[scenarioId]; 
         const scenario = this.contents[scenarioId](name.name, name.possessive, name.prefix, name.prefix2, act);
@@ -88,10 +88,15 @@ export default class Scenario {
         const neighbour1Name = this.neighbour1NameData[neighbour1NameId];
         const neighbour2Name = this.neighbour2NameData[neighbour2NameId]
         const neighbBeliefs = neighbourBeliefs;
+        const condition = cond;
 
         return {
             scenario: scenario,
+            condition: condition,
             motive: motive,
+            motiveType: actorsMotive,
+            action: act,
+            actionType: action,
             image: image,
             question: question,
             name: name,

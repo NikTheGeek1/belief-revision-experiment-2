@@ -24,6 +24,7 @@ const w = window;
 const ExpPriorBelief = props => {
     const [meanValue, setMeanValue] = useState(50);
     const [varValue, setVarValue] = useState(1);
+    const conditionNumber = useSelector(state => state.conditionData.conditionNumber);
     const dispatch = useDispatch();
     const actorName = useSelector(state => state.conditionData.conditionData[state.conditionData.conditionNumber].name.name);
     useEffect(() => {
@@ -43,7 +44,7 @@ const ExpPriorBelief = props => {
     };
 
     const onNextHandler = () => {
-        dispatch(storePrior({mean: meanValue, var: varValue}));
+        dispatch(storePrior({mean: meanValue, var: varValue, conditionNumber: conditionNumber}));
         props.goToExperimentPhase();
     };
 

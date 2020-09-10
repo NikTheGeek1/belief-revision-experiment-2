@@ -9,12 +9,16 @@ import timerReducer from './store/reducers/timer';
 import gamePhaseReducer from './store/reducers/gamePhase';
 import conditionDataReducer from './store/reducers/conditionData';
 import participantDataReducer from './store/reducers/participantData';
+import generateToken from './utils/generate-token';
+
+const participantToken = generateToken(5);
 
 const rootReducer = combineReducers({
   timer: timerReducer,
   gamePhase: gamePhaseReducer,
   conditionData: conditionDataReducer,
-  participantData: participantDataReducer
+  participantData: participantDataReducer,
+  participantToken: () => participantToken
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
