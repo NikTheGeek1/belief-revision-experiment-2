@@ -81,7 +81,7 @@ export default class Scenario {
         const name = this.nameData[nameId];
         const act = action === 'A' ? this.AActions[scenarioId] : this.BActions[scenarioId]; 
         const scenario = this.contents[scenarioId](name.name, name.possessive, name.prefix, name.prefix2, act);
-        const motive = actorsMotive === 'good' ? this.goodMotivesA[scenarioId](name.name, name.possessive, name.prefix, name.prefix2) : this.badMotivesA[scenarioId](name.name, name.possessive, name.prefix, name.prefix2);
+        const motive = actorsMotive === 'good' ? this.goodMotivesA[scenarioId](name.name, name.possessive, name.prefix, name.prefix2) : this.badMotivesA[scenarioId](name.name, name.possessive, name.prefix, name.prefix2); // that's for randomised beliefs - motives
         const image = this.images[scenarioId];
         const title = this.titles[scenarioId];
         const question = this.question(name.name);

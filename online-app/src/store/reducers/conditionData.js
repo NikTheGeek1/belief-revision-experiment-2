@@ -5,22 +5,23 @@ import shuffle from '../../utils/shuffleArray';
 const scenarioInstance = new Scenarios();
 
 // for 3 scenarios
-const motives = [shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0]];
+const motives = [shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0]]; // that's for randomised beliefs - motives
 const conditions = shuffle(['independent', 'shared', 'sequential']);
 const neighbourBeliefs = {
-    // positive beliefs
-    positive: [
+    // unethical beliefs
+    bad: [
         { a: 30, b: 80 },
         { a: 20, b: 50 }
     ],
-    // negative beliefs
-    negative: [
+    // ethical beliefs
+    good: [
         { a: 80, b: 30 },
         { a: 50, b: 20 }
     ]
 };
-const neighbourBeliefsPosNegIndex = [shuffle(['positive', 'negative'])[0], shuffle(['positive', 'negative'])[0], shuffle(['positive', 'negative'])[0]];
-const neighbourBeliefsOrder = [shuffle(neighbourBeliefs[neighbourBeliefsPosNegIndex[0]]), shuffle(neighbourBeliefs[neighbourBeliefsPosNegIndex[1]]), shuffle(neighbourBeliefs[neighbourBeliefsPosNegIndex[2]])];
+// const neighbourBeliefsPosNegIndex = [shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0]];
+// const neighbourBeliefsOrder = [shuffle(neighbourBeliefs[neighbourBeliefsPosNegIndex[0]]), shuffle(neighbourBeliefs[neighbourBeliefsPosNegIndex[1]]), shuffle(neighbourBeliefs[neighbourBeliefsPosNegIndex[2]])];
+const neighbourBeliefsOrder = [shuffle(neighbourBeliefs[motives[0]]), shuffle(neighbourBeliefs[motives[1]]), shuffle(neighbourBeliefs[motives[2]])]; // that's for aligned beliefs - motives
 const names = shuffle([0, 1, 2, 3]);
 const neighbour1Names = shuffle([0, 1, 2, 3]);
 const neighbour2Names = shuffle([0, 1, 2, 3]);
@@ -32,7 +33,7 @@ const conditionData = [
 ];
 
 const initialState = {
-    neighbourBeliefsPosNegIndex: neighbourBeliefsPosNegIndex,
+    neighbourBeliefsPosNegIndex: motives,
     namesIdx: names,
     conditions: conditions,
     neighbour1NamesIdx: neighbour1Names,

@@ -18,9 +18,9 @@ const ExpNeighbourBeliefs = props => {
             <div className={Classes.InnerContainer}>
                 <h1>{neighbour1Name.name}'s and {neighbour2Name.name}'s beliefs</h1>
                 <hr />
-                <p>{neighbour1Name.name} and {neighbour2Name.name} are two likely fellow townsfolks who have also formed an opinion about {actorName.name} (the
+                <p>{neighbour1Name.name} and {neighbour2Name.name} are two friends of yours who have also formed an opinion about {actorName.name} (the
                 main character in the story you just read), but they also know {actorName.name}'s motives behind {actorName.possessive} decision. Specifically
-                they know that {actorName.name} decided to {motive} </p>
+                they know that {actorName.name} decided to <b>{motive}</b> </p>
                 <br />
                 <Condition
                     type={condition}

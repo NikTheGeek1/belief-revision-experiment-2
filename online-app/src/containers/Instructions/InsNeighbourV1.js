@@ -16,7 +16,7 @@ const InsNeighbourV1 = props => {
         <div className={Classes.InsNeighbourV1}>
             <div className={Classes.InnerContainer}>
                 <h1>Instructions: Belief sharing</h1>
-                <p><b>Alice</b> and <b>Bob</b> are two a likely fellow townsfolks who have also formed an opinion about
+                <p><b>Alice</b> and <b>Bob</b> are two friends of yours who have also formed an opinion about
                 Avery (the main character in the story you just read), but they also know Avery's motives behind their decision.
                 Specifically, they both know that Avery decided to lower employees' wages and to to keep the new, lower wage as the standard wage,
                     which in turn will save the company more money in the long term.</p>
