@@ -79,10 +79,10 @@ const Debrief = props => {
             <div className={Classes.InnerContainer}>
                 <h1>Debrief and demographics</h1>
                 <p>Thank you for your contribution to science. When you fill the following questions you'll get a reference code
-                which you can use to get paid. Questions with * are required.
+                which you can use to get paid.
                 </p>
                 <hr />
-                <br />
+                <i>Questions with * are required.</i>
                 <div className={Classes.Form}>
                     <div className={Classes.AgeContainer}>
                         <label htmlFor="age">How old are you:<span>*</span>&nbsp;</label>
