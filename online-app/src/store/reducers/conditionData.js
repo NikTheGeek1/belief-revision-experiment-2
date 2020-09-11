@@ -10,13 +10,13 @@ const conditions = shuffle(['independent', 'shared', 'sequential']);
 const neighbourBeliefs = {
     // unethical beliefs
     bad: [
-        { a: 30, b: 80 },
-        { a: 20, b: 50 }
+        { a: 30/2, b: 80/2 },
+        { a: 20/2, b: 50/2 }
     ],
     // ethical beliefs
     good: [
-        { a: 80, b: 30 },
-        { a: 50, b: 20 }
+        { a: 80/2, b: 30/2 },
+        { a: 50/2, b: 20/2 }
     ]
 };
 // const neighbourBeliefsPosNegIndex = [shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0], shuffle(['good', 'bad'])[0]];
