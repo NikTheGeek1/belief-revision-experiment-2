@@ -4,8 +4,8 @@ const initialState = {
     [PHASES.ethics]: false,
     [PHASES.notes]: false,
     [PHASES.instructions]: false,
-    [PHASES.experiment]: true,
-    [PHASES.debrief]: false,
+    [PHASES.experiment]: false,
+    [PHASES.debrief]: true,
     [PHASES.end]: false
 
 };

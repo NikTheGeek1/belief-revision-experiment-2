@@ -82,7 +82,7 @@ const Debrief = props => {
                 which you can use to get paid.
                 </p>
                 <hr />
-                <i>Questions with * are required.</i>
+                <p className={Classes.Asterisk}><i>Questions with * are required.</i></p>
                 <div className={Classes.Form}>
                     <div className={Classes.AgeContainer}>
                         <label htmlFor="age">How old are you:<span>*</span>&nbsp;</label>
