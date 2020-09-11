@@ -33,7 +33,7 @@ const Notes = props => {
                     <li>You <b>should not</b> use a mobile phone or tablet to participate in that experiment.</li>
                     <li>Do <b>not refresh</b> the page during the experiment.</li>
                 </ul>
-                <Button clicked={goToInstructionsHandler}>Start the task</Button>
+                <Button clicked={goToInstructionsHandler}>Start</Button>
             </div>
         </div>
     );

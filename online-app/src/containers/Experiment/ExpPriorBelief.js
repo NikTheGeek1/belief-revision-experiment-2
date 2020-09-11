@@ -64,7 +64,7 @@ const ExpPriorBelief = props => {
                 <input className={Classes.Slider} type="range" min="1" max="99" value={varValue} id="varSlider" step={1} width="20%" onChange={varSliderHandler} />
                 <output className={Classes.Output} id="varOutput">{varValue}</output>
             </div>
-            <Button clicked={onNextHandler}>See friend's belief</Button>
+            <Button clicked={onNextHandler}>See friends' belief</Button>
         </div>
     );
 };

@@ -11,8 +11,9 @@
     grid-area: text;
     padding: 1rem;
     background-color: white;
-
+    text-align: center;
     & img {
-        width: 100%;
+        width: 300px;
+        height: 300px;
     }
 }

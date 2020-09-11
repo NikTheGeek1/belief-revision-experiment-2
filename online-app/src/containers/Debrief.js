@@ -7,7 +7,6 @@ import Button from '../components/Button/Button';
 import TryAgainModal from '../components/TryAgainModal';
 import { changePhase, PHASES } from '../store/actions/gamePhase';
 
-
 const Debrief = props => {
     const dispatch = useDispatch();
     const participantToken = useSelector(state => state.participantToken);
@@ -48,7 +47,8 @@ const Debrief = props => {
                 participantData: participantData,
                 conditionsData: conditionsData,
                 debriefData: debriefData,
-                token: participantToken
+                token: participantToken,
+                date: new Date()
             })
             .then(res => {
                 console.log('DATA STORED');
