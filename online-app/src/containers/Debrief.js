@@ -146,11 +146,11 @@ const Debrief = props => {
                         </select>
                     </div>
                     <div className={Classes.PriorContainer}>
-                        <label htmlFor="prior">How did you decide between candidates when providing your <b>initial judgement</b>? Did you have a specific strategy?<span>*</span></label>
+                        <label htmlFor="prior">What were you thinking when providing your <b>initial judgement</b>? Did you have a specific strategy?<span>*</span></label>
                         <textarea id="prior" value={prior} onChange={e => setPrior(e.target.value)} />
                     </div>
                     <div className={Classes.PosteriorContainer}>
-                        <label htmlFor="posterior">How did you decide between candidates when providing your <b>final judgement</b>? Did you have a specific strategy?<span>*</span></label>
+                        <label htmlFor="posterior">What were you thinking when providing your <b>final judgement</b>? Did you have a specific strategy?<span>*</span></label>
                         <textarea id="posterior" value={post} onChange={e => setPost(e.target.value)} />
                     </div>
                     <div className={Classes.CommentsContainer}>
