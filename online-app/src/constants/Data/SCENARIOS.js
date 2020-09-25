@@ -64,7 +64,7 @@ export default class Scenario {
 
         this.badMotivesA = [
             (name, possessive, prefix, prefix2) => `pursue a charity placement abroad because ${prefix} wants to use the placement solely to build ${possessive} personal cv.`,
-            (name, possessive, prefix, prefix2) => `award the budget to a shopping centre as ${prefix} hopes by doing so will increase business tax revenue, increasing the chief counsillor's pay.`,
+            (name, possessive, prefix, prefix2) => `award the budget to a shopping centre as ${prefix} hopes by doing so will increase business tax revenue, increasing the chief councillor's pay.`,
             (name, possessive, prefix, prefix2) => `keep the distribution within the company's own networks, since ${prefix} is purely interested in maximising ${possessive} own profits.`
         ];
 
