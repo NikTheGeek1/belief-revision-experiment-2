@@ -81,6 +81,7 @@ const Debrief = props => {
                 <p>Thank you for your contribution to science. When you fill the following questions you'll get a reference code
                 which you can use to get paid.
                 </p>
+                <br />
                 <hr />
                 <p className={Classes.Asterisk}><i>Questions with * are required.</i></p>
                 <div className={Classes.Form}>
