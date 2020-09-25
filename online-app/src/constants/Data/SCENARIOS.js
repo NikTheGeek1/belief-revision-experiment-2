@@ -58,7 +58,7 @@ export default class Scenario {
 
         this.goodMotivesA = [
             (name, possessive, prefix, prefix2) => `pursue a charity placement abroad because ${prefix} wants to help those less fortunate.`,
-            (name, possessive, prefix, prefix2) => `award the budget to a shopping centre as ${prefix} hopes this will create more jobs, helping resindents struggling with unemployment.`,
+            (name, possessive, prefix, prefix2) => `award the budget to a shopping centre as ${prefix} hopes this will create more jobs, helping residents struggling with unemployment.`,
             (name, possessive, prefix, prefix2) => `keep the distribution within the company's own networks, since ${prefix} thinks that this will allow them to help as many as possible affected by the condition, as quickly as possible.`
         ];
 
