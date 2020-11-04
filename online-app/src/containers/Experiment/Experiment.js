@@ -25,7 +25,7 @@ const Experiment = props => {
         dispatch(setTimer(true, 1, 5));
     }, [dispatch]);
 
-    const [experimentPhase, setExperimentPhase] = useState(EXP_PHASES.scenario);
+    const [experimentPhase, setExperimentPhase] = useState(EXP_PHASES.overview);
 
     const goToExperimentPhaseHandler = expPhase => {
         setExperimentPhase(expPhase);

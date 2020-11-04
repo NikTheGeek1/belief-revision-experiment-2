@@ -13,7 +13,7 @@ const ExpScenario = props => {
 
     const scenario = useSelector(state => state.conditionData.conditionData[state.conditionData.conditionNumber]);
 
-    const [sec, setSec] = useState(2);
+    const [sec, setSec] = useState(10);
     useEffect(() => {
         if (sec === 0) return
         const countDown = setTimeout(() => {
