@@ -68,7 +68,7 @@ const InsVarSlider = props => {
                 are more certain on your belief.
                 <br />
                 <br />
-                To get the idea, try moving the slider to 99 then to 1 observing how the picture below changes.
+                To get the idea, try moving the slider from one end to the other observing how the figure below changes.
                 </p>
                 <hr />
 
